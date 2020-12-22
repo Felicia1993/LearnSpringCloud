@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: distributed-discovery
+server:
+    port:53000
+eureka:
+  server:
+#=作为服务端的配置===
+#关闭自我保护,防止因保护模式而不将挂掉的服务踢出掉
+  enable-self-preservation=false
+  #eureka server清理无效节点的时间间隔，默认60000毫秒，即60秒
+  eviction-interval-timer-in-ms=60000
+  shouldUseReadOnlyResponseCache:true #eureka是CAP理论基于AP策略，为了保证强一致性关闭此切换CP
+  client:
+    #==禁用它的客户端注册行为=
+    register-with-eureka=false
+    fetch-registry=false
+    instance-info-replication-interval-seconds:10
+    serviceUrl:
+      defaultZone: http://localhost:${server.port}/eureka
+  instance:
+  #=====高可用时作为客户端的配置=
+  #客户端发心跳给服务端证明自己存在的间隔时间
+    lease-renewal-interval-in-seconds=5
+  #算法：当前时间-客户端上次发送心跳时间>该配置时间，服务器会根据该算法把对应的客户端置为无效，
+  #然后根据eviction里定义的时间来定时扫描这些失效文件，踢出局（各个客户端失效时间可能不同，所以该属性配在客户端）
+    lease-expiration-duration-in-seconds=10
+
+
+
+
