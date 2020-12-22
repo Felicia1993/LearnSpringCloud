@@ -18,13 +18,9 @@
         <module>distributed-security-discovery</module>
         <module>distributed-security-gateway</module>
         <module>distributed-security-uaa</module>
+        <module>distributed-security-order</module>
     </modules>
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-dependencies</artifactId>
-            <version>Greenwich.SR2</version>
-        </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>

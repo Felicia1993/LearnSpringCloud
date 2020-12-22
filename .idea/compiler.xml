@@ -9,6 +9,7 @@
         <module name="distributed-security-gateway" />
         <module name="distributed-security-uaa" />
         <module name="distributed-security-discovery" />
+        <module name="distributed-security-order" />
       </profile>
     </annotationProcessing>
   </component>
@@ -16,6 +17,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="distributed-security-discovery" options="-parameters" />
       <module name="distributed-security-gateway" options="-parameters" />
+      <module name="distributed-security-order" options="-parameters" />
       <module name="distributed-security-uaa" options="-parameters" />
     </option>
   </component>
